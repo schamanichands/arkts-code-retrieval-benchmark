@@ -9,10 +9,6 @@ The project focuses on **ArkTS** and investigates methods for constructing
 and evaluating benchmarks for generative software development in a
 low-resource programming language.
 
-The main benchmark task considered in this repository is **code retrieval**:
-given a natural-language description of a function, retrieve the most
-relevant ArkTS implementation from a collection of candidate functions.
-
 ## Research context
 
 This repository is based on the collaborative work behind:
@@ -63,8 +59,6 @@ retrieval approaches.
 
 The experimental part of the project investigates the effect of
 domain-specific training on ArkTS code retrieval.
-
-The planned experiments include:
 
 ### Baseline retrieval
 
@@ -121,3 +115,69 @@ arkts-benchmark-nir/
 │   └── README.md
 │
 └── figures/
+```
+
+## Quick start
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/arkts-benchmark-nir.git
+cd arkts-benchmark-nir
+```
+
+### 2. Create a virtual environment
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Prepare the dataset
+
+The dataset and original preprocessing pipeline are available in the
+collaborative ArkTS-CodeSearch project:
+
+https://github.com/hreyulog/arkts-codesearch
+
+See `data/README.md` for dataset preparation instructions.
+
+### 5. Run an experiment
+
+Experiment-specific instructions are provided in the corresponding
+experiment directory.
+
+## Reproducibility
+
+Experiments are organized to make the training and evaluation procedures
+reproducible.
+
+The repository separates:
+
+1. Dataset and preprocessing work from the original collaborative project.
+2. Benchmark preparation.
+3. Model training.
+4. Retrieval evaluation.
+5. Experimental results and analysis.
+
+Hardware and software configurations are documented alongside the
+corresponding experiments.
+
+## Attribution
+
+This repository is part of a research project based on collaborative work.
+
+The original ArkTS dataset construction and data-processing pipeline are
+available in:
+
+https://github.com/hreyulog/arkts-codesearch
+
+Experimental results from the original collaborative work are distinguished
+from experiments reproduced or conducted independently as part of this
+research project.
