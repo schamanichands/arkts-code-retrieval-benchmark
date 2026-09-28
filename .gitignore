@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Experiment outputs
+checkpoints/
+runs/
+wandb/
+
+# Local data
+data/raw/
+data/processed/
+
+# Model files
+*.bin
+*.safetensors
+*.pt
+*.pth
+
+# Logs
+*.log
