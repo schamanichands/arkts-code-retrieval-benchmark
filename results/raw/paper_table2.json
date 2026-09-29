@@ -1,0 +1,127 @@
+{
+  "source": "ArkTS-CodeSearch",
+  "table": "Table 2",
+  "task": "docstring_to_function_retrieval",
+  "results": [
+    {
+      "model": "EmbeddingGemma-300M",
+      "condition": "TS",
+      "metrics": {
+        "mrr": 0.6259,
+        "ndcg": 0.6525,
+        "recall_at_1": 0.5572,
+        "recall_at_5": 0.7318
+      }
+    },
+    {
+      "model": "EmbeddingGemma-300M",
+      "condition": "TS_to_ArkTS",
+      "metrics": {
+        "mrr": 0.8013,
+        "ndcg": 0.8229,
+        "recall_at_1": 0.7412,
+        "recall_at_5": 0.8867
+      }
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "condition": "TS",
+      "metrics": {
+        "mrr": 0.6522,
+        "ndcg": 0.6785,
+        "recall_at_1": 0.5809,
+        "recall_at_5": 0.7563
+      }
+    },
+    {
+      "model": "Qwen3-0.6B",
+      "condition": "TS_to_ArkTS",
+      "metrics": {
+        "mrr": 0.7708,
+        "ndcg": 0.7947,
+        "recall_at_1": 0.7065,
+        "recall_at_5": 0.8655
+      }
+    },
+    {
+      "model": "BGE-M3",
+      "condition": "TS",
+      "metrics": {
+        "mrr": 0.6051,
+        "ndcg": 0.6338,
+        "recall_at_1": 0.5311,
+        "recall_at_5": 0.7191
+      }
+    },
+    {
+      "model": "BGE-M3",
+      "condition": "TS_to_ArkTS",
+      "metrics": {
+        "mrr": 0.7581,
+        "ndcg": 0.7846,
+        "recall_at_1": 0.6872,
+        "recall_at_5": 0.8630
+      }
+    },
+    {
+      "model": "BGE-zh",
+      "condition": "TS",
+      "metrics": {
+        "mrr": 0.5270,
+        "ndcg": 0.5571,
+        "recall_at_1": 0.4509,
+        "recall_at_5": 0.6468
+      }
+    },
+    {
+      "model": "BGE-zh",
+      "condition": "TS_to_ArkTS",
+      "metrics": {
+        "mrr": 0.6759,
+        "ndcg": 0.7032,
+        "recall_at_1": 0.6018,
+        "recall_at_5": 0.7841
+      }
+    },
+    {
+      "model": "E5-base-v2",
+      "condition": "TS",
+      "metrics": {
+        "mrr": 0.3751,
+        "ndcg": 0.3955,
+        "recall_at_1": 0.3226,
+        "recall_at_5": 0.4567
+      }
+    },
+    {
+      "model": "E5-base-v2",
+      "condition": "TS_to_ArkTS",
+      "metrics": {
+        "mrr": 0.4557,
+        "ndcg": 0.4821,
+        "recall_at_1": 0.3904,
+        "recall_at_5": 0.5613
+      }
+    },
+    {
+      "model": "BGE-en",
+      "condition": "TS",
+      "metrics": {
+        "mrr": 0.3834,
+        "ndcg": 0.4047,
+        "recall_at_1": 0.3299,
+        "recall_at_5": 0.4681
+      }
+    },
+    {
+      "model": "BGE-en",
+      "condition": "TS_to_ArkTS",
+      "metrics": {
+        "mrr": 0.4539,
+        "ndcg": 0.4770,
+        "recall_at_1": 0.3949,
+        "recall_at_5": 0.5457
+      }
+    }
+  ]
+}
