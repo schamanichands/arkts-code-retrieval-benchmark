@@ -1,8 +1,8 @@
 # Experimental Results
 
-This directory contains experimental results used in the NIR
-on benchmarking generative software development for the low-resource
-ArkTS programming language.
+This directory contains experimental results used in the work
+on benchmark construction and evaluation for generative software
+development in the low-resource ArkTS programming language.
 
 ## Directory structure
 
@@ -39,9 +39,21 @@ The 25%, 50%, and 100% experiments use the same model and
 training configuration. The intended experimental variable is
 the fraction of specialized ArkTS training data.
 
+The experiments use EmbeddingGemma-300M with the same training
+configuration across all data fractions:
+
+- Batch size: 4
+- Learning rate: 1e-5
+- Epochs: 2
+- Maximum sequence length: 512
+- Loss: Multiple Negatives Ranking Loss
+- Warm-up ratio: 10%
+- Random seed: 42
+- AMP: disabled
+
 ## Main results
 
-The main independent NIR experiment evaluates the effect of
+The main independent work experiment evaluates the effect of
 ArkTS-specific training data volume on EmbeddingGemma-300M.
 
 The zero-shot result is used as a baseline, while the fine-tuned
@@ -71,7 +83,7 @@ The corresponding rendered table is available as:
 
 The following figures visualize results reported in the joint
 ArkTS-CodeSearch paper. They are included for contextual comparison
-and are not part of the independent controlled NIR experiment.
+and are not part of the independent controlled work experiment.
 
 ### Model comparison
 
@@ -82,11 +94,12 @@ and are not part of the independent controlled NIR experiment.
 ![TypeScript-to-ArkTS transfer](../figures/paper_transfer_results.jpg)
 
 ## Attribution
+## Attribution
 
-The `fine_tuning_25.json`, `fine_tuning_50.json`, and
-`fine_tuning_100.json` files contain experiments conducted
-as part of this NIR.
+The `baseline_embeddinggemma.json`, `fine_tuning_25.json`,
+`fine_tuning_50.json`, and `fine_tuning_100.json` files contain
+the independent experimental results conducted as part of this work.
 
 The `paper_table1.json` and `paper_table2.json` files contain
 results reported in the joint ArkTS-CodeSearch paper and are
-stored separately from the independent NIR experiments.
+stored separately from the independent work experiments.
