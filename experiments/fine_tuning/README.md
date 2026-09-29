@@ -54,3 +54,19 @@ experiment results.
 
 Model checkpoints are not stored in the Git repository because of their
 size.
+
+## Running experiments
+
+### Training
+
+The training script is:
+
+`train_embeddinggemma.py`
+
+For example, to train on 25% of the training data:
+
+```bash
+python train_embeddinggemma.py \
+  --output ../../results/models/embeddinggemma-300m-arkts-25 \
+  --fraction 0.25
+```
