@@ -1,0 +1,25 @@
+{
+  "experiment": "fine-tuning",
+  "model": "EmbeddingGemma-300M",
+  "dataset": "hreyulog/arkts-code-docstring",
+  "split": "test",
+  "test_size": 2446,
+  "task": "docstring_to_function_retrieval",
+  "train_fraction": 1.0,
+  "training": {
+    "epochs": 2,
+    "batch_size": 4,
+    "learning_rate": 0.00001,
+    "warmup_ratio": 0.1,
+    "loss": "MultipleNegativesRankingLoss",
+    "seed": 42,
+    "amp": false,
+    "max_seq_length": 512
+  },
+  "metrics": {
+    "recall_at_1": 0.6607,
+    "recall_at_5": 0.8361,
+    "mrr": 0.7390,
+    "ndcg_at_5": 0.7568
+  }
+}
