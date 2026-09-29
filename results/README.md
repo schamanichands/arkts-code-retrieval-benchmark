@@ -75,11 +75,11 @@ and are not part of the independent controlled NIR experiment.
 
 ### Model comparison
 
-![Model comparison](../figures/paper_model_comparison.png)
+![Model comparison](../figures/paper_model_comparison.jpg)
 
 ### TypeScript-to-ArkTS transfer
 
-![TypeScript-to-ArkTS transfer](../figures/paper_transfer_results.png)
+![TypeScript-to-ArkTS transfer](../figures/paper_transfer_results.jpg)
 
 ## Attribution
 
