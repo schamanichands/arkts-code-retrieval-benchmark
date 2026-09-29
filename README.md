@@ -60,6 +60,25 @@ retrieval approaches.
 The experimental part of the project investigates the effect of
 domain-specific training on ArkTS code retrieval.
 
+## Main results
+
+The independent NIR experiment evaluates the effect of specialized
+ArkTS training data volume on EmbeddingGemma-300M.
+
+| Training data | R@1 | R@5 | MRR | NDCG@5 |
+|---|---:|---:|---:|---:|
+| Zero-shot | 0.5740 | 0.7416 | 0.6397 | 0.6653 |
+| 25% | 0.6390 | 0.8115 | 0.7175 | 0.7338 |
+| 50% | 0.6500 | 0.8209 | 0.7285 | 0.7448 |
+| 100% | 0.6607 | 0.8361 | 0.7390 | 0.7568 |
+
+The results show a consistent increase in all evaluated retrieval
+metrics as the amount of specialized ArkTS training data increases.
+
+![Effect of training data volume](figures/data_efficiency.png)
+
+![Experimental results](figures/experiment_results_table.png)
+
 ### Baseline retrieval
 
 Evaluation of pretrained embedding models on the ArkTS retrieval task
@@ -67,30 +86,40 @@ without ArkTS-specific fine-tuning.
 
 ### ArkTS fine-tuning
 
-Fine-tuning of embedding models using ArkTS docstring–function pairs.
+The main independent experiments fine-tune **EmbeddingGemma-300M**
+on ArkTS docstring–function pairs.
 
-The main configuration uses:
+The controlled experimental configuration is:
 
-- **EmbeddingGemma-300M**
-- maximum sequence length: **512**
-- **Multiple Negatives Ranking Loss**
-- learning rate: **2 × 10⁻⁵**
-- training epochs: **2**
-- mixed-precision training
+- **Batch size:** 4
+- **Maximum sequence length:** 512
+- **Loss:** Multiple Negatives Ranking Loss
+- **Learning rate:** 1e-5
+- **Training epochs:** 2
+- **Warm-up ratio:** 10%
+- **Random seed:** 42
+- **AMP:** disabled
 
-### Additional experiments
+### Controlled data-efficiency experiment
 
-The repository is intended to contain experiments on:
+The main independent experiment studies the effect of ArkTS-specific
+training data volume.
 
-- training data size;
-- TypeScript-to-ArkTS transfer;
-- comparison of embedding models;
-- lexical vs. semantic retrieval;
-- different training configurations.
+EmbeddingGemma-300M is fine-tuned using:
+
+- **25%** of the training data;
+- **50%** of the training data;
+- **100%** of the training data.
+
+All other training parameters are kept fixed.
+
+The repository also contains results reported in the joint
+ArkTS-CodeSearch paper for contextual comparison. These results are
+clearly separated from the independent work experiments.
 
 ## Repository structure
 
-```text
+```bash
 arkts-benchmark-nir/
 ├── README.md
 ├── requirements.txt
@@ -103,18 +132,22 @@ arkts-benchmark-nir/
 │   ├── README.md
 │   ├── baseline/
 │   ├── fine_tuning/
-│   └── transfer/
+│   ├── transfer/
+│   └── analysis/
+│       └── results_analysis.ipynb
 │
 ├── evaluation/
-│   ├── README.md
-│   └── results/
-│
-├── configs/
-│
-├── results/
 │   └── README.md
 │
+├── results/
+│   ├── README.md
+│   └── raw/
+│
 └── figures/
+    ├── data_efficiency.png
+    ├── experiment_results_table.png
+    ├── paper_model_comparison.png
+    └── paper_transfer_results.png
 ```
 
 ## Quick start
@@ -122,7 +155,7 @@ arkts-benchmark-nir/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/arkts-benchmark-nir.git
+git clone https://github.com/schamanichands/arkts-benchmark-nir.git
 cd arkts-benchmark-nir
 ```
 
@@ -148,10 +181,17 @@ https://github.com/hreyulog/arkts-codesearch
 
 See `data/README.md` for dataset preparation instructions.
 
-### 5. Run an experiment
+### 5. Run the experiments
 
-Experiment-specific instructions are provided in the corresponding
-experiment directory.
+Experiment-specific instructions are provided in:
+
+- `experiments/baseline/`
+- `experiments/fine_tuning/`
+- `experiments/transfer/`
+
+The analysis notebook is available in:
+
+`experiments/analysis/results_analysis.ipynb`
 
 ## Reproducibility
 
@@ -173,11 +213,15 @@ corresponding experiments.
 
 This repository is part of a research project based on collaborative work.
 
-The original ArkTS dataset construction and data-processing pipeline are
+The ArkTS-CodeSearch dataset and the original ArkTS data-processing
+pipeline were developed as part of the joint research work and are
 available in:
 
 https://github.com/hreyulog/arkts-codesearch
 
-Experimental results from the original collaborative work are distinguished
-from experiments reproduced or conducted independently as part of this
-research project.
+The independent experiments in this repository focus on the evaluation
+of EmbeddingGemma-300M and the effect of ArkTS-specific training data
+volume using 25%, 50%, and 100% of the training data.
+
+Results reported in the joint ArkTS-CodeSearch paper are stored
+separately and explicitly marked as paper results.
