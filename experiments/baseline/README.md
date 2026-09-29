@@ -9,7 +9,7 @@ The main baseline uses:
 
 - **Model:** EmbeddingGemma-300M
 - **Maximum sequence length:** 512 tokens
-- **Training:** none
+- **Training:** pretrained model without ArkTS-specific fine-tuning
 
 The pretrained model is evaluated directly on the ArkTS test set.
 
